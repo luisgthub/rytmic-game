@@ -1,0 +1,12 @@
+res://buttons/block_base.tscn
+res://crshader.gdshader
+res://main.tscn
+res://hiteffect.tscn
+res://hiteffect.gd
+res://fases/trilha.tscn
+res://capoeirista.tscn
+res://capoeirista.gd
+res://notify.tscn
+res://fases/trilha.gd
+res://manager.gd
+res://notify.gd

@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dbmwa3uxbka7o"]
+
+[ext_resource type="Texture2D" uid="uid://886jpaopujvw" path="res://assets/characters/capoeirista.png" id="1_5hemu"]
+[ext_resource type="Script" uid="uid://5msannftlor6" path="res://capoeirista.gd" id="1_t2wx4"]
+[ext_resource type="Texture2D" uid="uid://cxwx1emhkfaum" path="res://assets/feedback/smoke.png" id="3_b5sql"]
+[ext_resource type="Texture2D" uid="uid://cyxh6nhbqk7lg" path="res://assets/characters/shadow.png" id="4_bcd66"]
+
+[sub_resource type="Gradient" id="Gradient_b5sql"]
+offsets = PackedFloat32Array(0, 0.60784316)
+
+[node name="capoeirista" type="Node2D" unique_id=1140985955]
+z_index = 1
+script = ExtResource("1_t2wx4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=305152635]
+texture = ExtResource("1_5hemu")
+hframes = 9
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1407446089]
+
+[node name="smoke" type="CPUParticles2D" parent="." unique_id=402938502]
+modulate = Color(1, 1, 1, 0.43529412)
+z_as_relative = false
+emitting = false
+amount = 3
+texture = ExtResource("3_b5sql")
+lifetime = 0.2
+randomness = 0.51
+direction = Vector2(0, 1)
+spread = 148.94
+gravity = Vector2(0, 500)
+initial_velocity_min = 10.0
+initial_velocity_max = 15.0
+linear_accel_min = 15.0
+linear_accel_max = 30.0
+scale_amount_max = 8.0
+color_ramp = SubResource("Gradient_b5sql")
+
+[node name="shadow" type="Sprite2D" parent="." unique_id=1391992625]
+modulate = Color(1, 1, 1, 0.5764706)
+position = Vector2(0, 20)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_bcd66")

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cv0yxqgvvw1oy"]
+
+[ext_resource type="PackedScene" uid="uid://4whf5qmjkh4v" path="res://buttons/button_config.tscn" id="1_sxmuy"]
+[ext_resource type="Texture2D" uid="uid://cvo3ha12rrcsa" path="res://assets/rightoutline.png" id="2_gdlh4"]
+[ext_resource type="Texture2D" uid="uid://dqmgumkmmccb3" path="res://assets/right.png" id="3_8d1nk"]
+
+[node name="right" unique_id=205513139 instance=ExtResource("1_sxmuy")]
+keyboard_pressed = "right"
+text_pressed = ExtResource("2_gdlh4")
+normal_text = ExtResource("3_8d1nk")

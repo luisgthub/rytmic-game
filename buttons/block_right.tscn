@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dol7txmruksov"]
+
+[ext_resource type="PackedScene" uid="uid://dp87y1yvy8hbc" path="res://buttons/block_base.tscn" id="1_xfh1y"]
+[ext_resource type="Texture2D" uid="uid://dcnxwr2ou7opi" path="res://assets/blockd.png" id="2_uifv5"]
+
+[node name="button_base" unique_id=1746451870 instance=ExtResource("1_xfh1y")]
+
+[node name="Sprite2D" parent="." index="1" unique_id=128134025]
+texture = ExtResource("2_uifv5")

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dwukf8mem8da5"]
+
+[ext_resource type="PackedScene" uid="uid://4whf5qmjkh4v" path="res://buttons/button_config.tscn" id="1_ujffm"]
+[ext_resource type="Texture2D" uid="uid://cda62t5ccerg8" path="res://assets/upoutline.png" id="2_lv1vb"]
+[ext_resource type="Texture2D" uid="uid://c4ps3tnp3ltmd" path="res://assets/up.png" id="3_3rdcu"]
+
+[node name="up" unique_id=205513139 instance=ExtResource("1_ujffm")]
+keyboard_pressed = "up"
+text_pressed = ExtResource("2_lv1vb")
+normal_text = ExtResource("3_3rdcu")

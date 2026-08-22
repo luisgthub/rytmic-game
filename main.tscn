@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://toqd84r8up7d"]
+
+[ext_resource type="Script" uid="uid://dq6pteceulo4y" path="res://main.gd" id="1_272bh"]
+[ext_resource type="Texture2D" uid="uid://dlhvxm2koeitu" path="res://assets/background.png" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://crm7b64lldvwi" path="res://fases/trilha.tscn" id="2_0xm2m"]
+[ext_resource type="Shader" uid="uid://roxsbc462wx6" path="res://crshader.gdshader" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://8s2qgsaxbxpm" path="res://assets/characters/bar-out.png" id="4_lquwl"]
+[ext_resource type="Texture2D" uid="uid://b36cqnbpoepij" path="res://assets/characters/bar-in.png" id="5_7mycd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bhunq"]
+shader = ExtResource("3_h2yge")
+shader_parameter/scanline_count = 624.590024918025
+shader_parameter/scanline_intensity = 0.2210000104975
+shader_parameter/glitch_amount = 0.002000000095
+
+[node name="main" type="Node2D" unique_id=1534841372]
+script = ExtResource("1_272bh")
+
+[node name="TextureRect" type="Sprite2D" parent="." unique_id=786254841]
+z_index = -1
+position = Vector2(240, 180)
+scale = Vector2(1.3333333, 1.4958335)
+texture = ExtResource("1_ig7tw")
+
+[node name="trilha" parent="." unique_id=2122175669 instance=ExtResource("2_0xm2m")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1804577650]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=177733071]
+material = SubResource("ShaderMaterial_bhunq")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bar" type="TextureProgressBar" parent="." unique_id=427682736]
+offset_left = 120.0
+offset_top = 25.0
+offset_right = 176.0
+offset_bottom = 65.0
+value = 100.0
+texture_under = ExtResource("4_lquwl")
+texture_progress = ExtResource("5_7mycd")

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://4whf5qmjkh4v"]
+
+[ext_resource type="Script" uid="uid://cwcb8hvf6yw5r" path="res://buttons/button_config.gd" id="1_jo2nv"]
+[ext_resource type="PackedScene" uid="uid://ijecsigrv4qf" path="res://hiteffect.tscn" id="2_dq8tp"]
+[ext_resource type="Texture2D" uid="uid://t8bweb88fn62" path="res://assets/particle.png" id="2_wm7my"]
+
+[node name="button-config" type="TextureButton" unique_id=205513139]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -480.0
+offset_bottom = -360.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jo2nv")
+anim = ExtResource("2_dq8tp")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1743786219]
+position = Vector2(16, 16)
+texture = ExtResource("2_wm7my")
+lifetime = 0.3
+direction = Vector2(0, 1)
+spread = 110.91
+gravity = Vector2(0, 5)
+initial_velocity_min = 15.0
+initial_velocity_max = 15.0
+angular_velocity_min = 5.0
+angular_velocity_max = 5.0
+linear_accel_min = 5.0
+linear_accel_max = 5.0

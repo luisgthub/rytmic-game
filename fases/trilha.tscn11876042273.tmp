@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://crm7b64lldvwi"]
+
+[ext_resource type="Script" uid="uid://cd3sc2ib47yfh" path="res://fases/trilha.gd" id="1_hkwgd"]
+[ext_resource type="PackedScene" uid="uid://b1w0cks213dc5" path="res://buttons/left.tscn" id="1_wcpin"]
+[ext_resource type="PackedScene" uid="uid://dwukf8mem8da5" path="res://buttons/up.tscn" id="2_jpsmn"]
+[ext_resource type="PackedScene" uid="uid://ccfxv1nd7k4yh" path="res://buttons/block_left.tscn" id="2_rppa3"]
+[ext_resource type="PackedScene" uid="uid://cv0yxqgvvw1oy" path="res://buttons/right.tscn" id="3_e4p3i"]
+[ext_resource type="PackedScene" uid="uid://rduocilqwlm4" path="res://buttons/block_up.tscn" id="3_j0oax"]
+[ext_resource type="PackedScene" uid="uid://dol7txmruksov" path="res://buttons/block_right.tscn" id="4_3ge36"]
+[ext_resource type="Texture2D" uid="uid://ccbvev7ablki4" path="res://assets/notetrail.png" id="9_j0oax"]
+[ext_resource type="Texture2D" uid="uid://dlhvxm2koeitu" path="res://assets/background.png" id="11_un4ac"]
+
+[node name="trilha" type="Node2D" unique_id=2122175669]
+script = ExtResource("1_hkwgd")
+block_left = ExtResource("2_rppa3")
+block_up = ExtResource("3_j0oax")
+block_right = ExtResource("4_3ge36")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=9214190]
+offset_right = 480.0
+offset_bottom = 360.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer" unique_id=1464624212]
+z_index = 1
+layout_mode = 2
+offset_transform_enabled = true
+alignment = 1
+
+[node name="left" parent="CenterContainer/HBoxContainer" unique_id=205513139 instance=ExtResource("1_wcpin")]
+layout_mode = 2
+
+[node name="up" parent="CenterContainer/HBoxContainer" unique_id=786209417 instance=ExtResource("2_jpsmn")]
+layout_mode = 2
+
+[node name="right" parent="CenterContainer/HBoxContainer" unique_id=883034645 instance=ExtResource("3_e4p3i")]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=97168947]
+texture = ExtResource("11_un4ac")
+centered = false
+offset = Vector2(60, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1778757050]
+texture = ExtResource("9_j0oax")
+centered = false
+offset = Vector2(120, 30)

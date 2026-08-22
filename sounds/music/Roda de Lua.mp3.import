@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b103nowmododp"
+path="res://.godot/imported/Roda de Lua.mp3-5c98cdd12fd92a1d48828f973642304e.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/Roda de Lua.mp3"
+dest_files=["res://.godot/imported/Roda de Lua.mp3-5c98cdd12fd92a1d48828f973642304e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dp87y1yvy8hbc"]
+
+[ext_resource type="Script" uid="uid://djh1rxttuatnj" path="res://buttons/block_base.gd" id="1_m4eki"]
+[ext_resource type="PackedScene" uid="uid://bq50j82wpa2x2" path="res://notify.tscn" id="2_oql42"]
+[ext_resource type="Texture2D" uid="uid://dsbaimjqwe8dg" path="res://assets/notes/starparticle.png" id="3_bqjsf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c516f"]
+
+[sub_resource type="Gradient" id="Gradient_bqjsf"]
+offsets = PackedFloat32Array(0.4509804, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[node name="block_base" type="StaticBody2D" unique_id=1746451870]
+z_index = 1
+script = ExtResource("1_m4eki")
+notify = ExtResource("2_oql42")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2100442481]
+shape = SubResource("RectangleShape2D_c516f")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=128134025]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1158533859]
+amount = 4
+texture = ExtResource("3_bqjsf")
+lifetime = 0.3
+randomness = 0.38
+spread = 121.69
+gravity = Vector2(125, 50)
+angular_velocity_min = 10.0
+angular_velocity_max = 10.0
+linear_accel_min = 15.0
+linear_accel_max = 15.0
+damping_min = 5.0
+damping_max = 15.0
+scale_amount_min = 0.2
+color_ramp = SubResource("Gradient_bqjsf")

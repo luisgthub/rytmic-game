@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bgko0g5xvdcak"]
+
+[ext_resource type="Script" uid="uid://ci77mhy8wfrf0" path="res://spawner.gd" id="1_yp5lu"]
+[ext_resource type="PackedScene" uid="uid://cx8lgp7gvy24b" path="res://buttons/block_a.tscn" id="2_7ocbr"]
+[ext_resource type="Texture2D" uid="uid://dlhvxm2koeitu" path="res://assets/background.png" id="2_ttk4a"]
+[ext_resource type="PackedScene" uid="uid://rduocilqwlm4" path="res://buttons/block_w.tscn" id="3_mv5bd"]
+[ext_resource type="PackedScene" uid="uid://dol7txmruksov" path="res://buttons/block_d.tscn" id="4_h3fkd"]
+[ext_resource type="PackedScene" uid="uid://b1w0cks213dc5" path="res://buttons/left.tscn" id="6_mv5bd"]
+
+[node name="spawner" type="Node2D" unique_id=1561223899 node_paths=PackedStringArray("meu_botao")]
+script = ExtResource("1_yp5lu")
+block_a = ExtResource("2_7ocbr")
+block_s = ExtResource("3_mv5bd")
+block_d = ExtResource("4_h3fkd")
+meu_botao = NodePath("a")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1616133654]
+texture = ExtResource("2_ttk4a")
+centered = false
+offset = Vector2(60, 0)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1777021810]
+
+[node name="a" parent="." unique_id=205513139 instance=ExtResource("6_mv5bd")]
