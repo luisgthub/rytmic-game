@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b1w0cks213dc5"]
 
 [ext_resource type="PackedScene" uid="uid://4whf5qmjkh4v" path="res://buttons/button_config.tscn" id="1_hdybk"]
-[ext_resource type="Texture2D" uid="uid://3my15ti6jqbs" path="res://assets/leftoutline.png" id="2_gdbpi"]
-[ext_resource type="Texture2D" uid="uid://cy5v6hykd0nkt" path="res://assets/left.png" id="3_s27hp"]
+[ext_resource type="Texture2D" uid="uid://x0p48frkrt76" path="res://assets/left-handout.png" id="2_gdbpi"]
+[ext_resource type="Texture2D" uid="uid://25jnav44nqoi" path="res://assets/lefthand.png" id="3_s27hp"]
 
 [node name="left" unique_id=205513139 instance=ExtResource("1_hdybk")]
 keyboard_pressed = "left"

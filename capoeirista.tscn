@@ -14,7 +14,7 @@ script = ExtResource("1_t2wx4")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=305152635]
 texture = ExtResource("1_5hemu")
-hframes = 9
+hframes = 12
 frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1407446089]

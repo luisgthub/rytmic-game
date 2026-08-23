@@ -1,0 +1,9 @@
+res://capoeirista.tscn
+res://crshader.gdshader
+res://capoeirista.gd
+res://fases/trilha.tscn
+res://fases/trilha.gd
+res://buttons/right.tscn
+res://buttons/up.tscn
+res://buttons/left.tscn
+res://buttons/button_config.tscn

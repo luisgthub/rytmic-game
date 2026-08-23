@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://cv0yxqgvvw1oy" path="res://buttons/right.tscn" id="3_e4p3i"]
 [ext_resource type="PackedScene" uid="uid://rduocilqwlm4" path="res://buttons/block_up.tscn" id="3_j0oax"]
 [ext_resource type="PackedScene" uid="uid://dol7txmruksov" path="res://buttons/block_right.tscn" id="4_3ge36"]
-[ext_resource type="Texture2D" uid="uid://ccbvev7ablki4" path="res://assets/notetrail.png" id="9_j0oax"]
 [ext_resource type="FontFile" uid="uid://deukeqb7apcnu" path="res://font/PressStart2P-Regular.ttf" id="10_3ge36"]
 [ext_resource type="AudioStream" uid="uid://0fcv88ugbg7d" path="res://sounds/music/Berimbau de Angola.mp3" id="11_ly18u"]
 [ext_resource type="Texture2D" uid="uid://dlhvxm2koeitu" path="res://assets/background.png" id="11_un4ac"]
 [ext_resource type="PackedScene" uid="uid://dbmwa3uxbka7o" path="res://capoeirista.tscn" id="12_ly18u"]
+[ext_resource type="Texture2D" uid="uid://bkhxl55be0t2x" path="res://assets/roda.png" id="13_alor4"]
 [ext_resource type="AudioStream" uid="uid://bu388y1c747sn" path="res://sounds/effects/powerUp.wav" id="13_neogf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j0oax"]
@@ -25,12 +25,12 @@ block_up = ExtResource("3_j0oax")
 block_right = ExtResource("4_3ge36")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=9214190]
-offset_left = 61.0
-offset_top = 30.0
-offset_right = 195.0
-offset_bottom = 150.0
+offset_left = 180.0
+offset_top = 120.0
+offset_right = 314.0
+offset_bottom = 240.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1134546434]
+[node name="VBoxContainer" type="HBoxContainer" parent="CenterContainer" unique_id=673702851]
 z_index = 1
 layout_mode = 2
 offset_transform_enabled = true
@@ -46,21 +46,17 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=97168947]
+position = Vector2(-1.5, 0)
+scale = Vector2(1.025, 1.3791667)
 texture = ExtResource("11_un4ac")
 centered = false
 offset = Vector2(60, 0)
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1778757050]
-texture = ExtResource("9_j0oax")
-centered = false
-offset = Vector2(120, 30)
-
 [node name="score_label" type="Label" parent="." unique_id=23871258]
-offset_left = 300.0
-offset_top = 200.0
-offset_right = 384.0
-offset_bottom = 212.0
-text = "0000000"
+offset_left = 317.0
+offset_top = 300.0
+offset_right = 401.0
+offset_bottom = 312.0
 label_settings = SubResource("LabelSettings_j0oax")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1956583021]
@@ -71,12 +67,19 @@ wait_time = 0.5
 autostart = true
 
 [node name="capoeirista" parent="." unique_id=1140985955 instance=ExtResource("12_ly18u")]
-position = Vector2(240, 90)
+position = Vector2(243, 200)
 scale = Vector2(2, 2)
 
 [node name="perfect" type="AudioStreamPlayer2D" parent="." unique_id=2078576026]
 stream = ExtResource("13_neogf")
 volume_db = -20.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=831491923]
+offset_left = 180.0
+offset_top = 180.0
+offset_right = 308.0
+offset_bottom = 308.0
+texture = ExtResource("13_alor4")
 
 [connection signal="send_key_pressed" from="CenterContainer/VBoxContainer/left" to="." method="_on_send_key_pressed"]
 [connection signal="timeout" from="TimerSpawn" to="." method="_on_timer_spawn_timeout"]

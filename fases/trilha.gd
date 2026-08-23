@@ -9,16 +9,16 @@ extends Node2D
 @onready var score_label = $score_label
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var timer_spawn: Timer = $TimerSpawn
-var button_box_start = Vector2(30, 50)
+var button_box_start = Vector2(0, 150)
 
 @export var block_left: PackedScene
 @export var block_up: PackedScene
 @export var block_right: PackedScene
 var count_perfects:int= 0
 var speed = 100 # Aumentado para fluir mais rápido
-var block_left_start = Vector2(360, 50)
-var block_up_start = Vector2(360, 90)
-var block_right_start = Vector2(360, 130)
+var block_left_start = Vector2(180, 50)
+var block_up_start = Vector2(240, 50)
+var block_right_start = Vector2(300, 50)
 
 # Lista para guardar todas as notas ativas na tela ao mesmo tempo
 var active_notes: Array = []
@@ -47,7 +47,7 @@ func _physics_process(delta: float) -> void:
 			continue
 			
 		# Move para a esquerda
-		note.position.x += -speed * delta
+		note.position.y += speed * delta
 		
 		# Pega a referência do botão correspondente para saber quando passou reto
 		var ref_button = button_left
@@ -79,7 +79,7 @@ func _on_timer_spawn_timeout() -> void:
 			novo_bloco.add_to_group("right_notes")
 	
 	if novo_bloco:
-		$Sprite2D.add_child(novo_bloco)
+		add_child(novo_bloco)
 		active_notes.append(novo_bloco) # Adiciona na lista geral de notas
 
 func tap_note(button: TextureButton, track_group: String):
