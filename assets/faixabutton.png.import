@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6m3fp5qc56ds"
-path="res://.godot/imported/quit.png-2b2e6a7ed38255aa9bc91a96c1e3c555.ctex"
+uid="uid://1kc4f0p611mf"
+path="res://.godot/imported/faixabutton.png-6e1d18daa07d89d90222e05aeb7ece11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menus/quit.png"
-dest_files=["res://.godot/imported/quit.png-2b2e6a7ed38255aa9bc91a96c1e3c555.ctex"]
+source_file="res://assets/faixabutton.png"
+dest_files=["res://.godot/imported/faixabutton.png-6e1d18daa07d89d90222e05aeb7ece11.ctex"]
 
 [params]
 

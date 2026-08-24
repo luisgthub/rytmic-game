@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2kev40x6ma1o"
-path="res://.godot/imported/restart.png-ba27217a8f6b9de3ca98c29440747e3b.ctex"
+uid="uid://beicafjwoe21d"
+path="res://.godot/imported/girlface.png-5362bc66f309813835ed599bd53a2f6e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menus/restart.png"
-dest_files=["res://.godot/imported/restart.png-ba27217a8f6b9de3ca98c29440747e3b.ctex"]
+source_file="res://assets/girlface.png"
+dest_files=["res://.godot/imported/girlface.png-5362bc66f309813835ed599bd53a2f6e.ctex"]
 
 [params]
 

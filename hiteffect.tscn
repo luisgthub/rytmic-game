@@ -2,7 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://d0rxs2ssok0gn" path="res://assets/feedback/correctcircle.png" id="1_g1x5b"]
 [ext_resource type="Script" uid="uid://bia384h7rb7me" path="res://hiteffect.gd" id="1_pk1v5"]
-[ext_resource type="AudioStream" uid="uid://bnoddfnwv4on4" path="res://sounds/effects/hitHurt.wav" id="3_c6osu"]
+[ext_resource type="AudioStream" uid="uid://tsr12i0jrwgl" path="res://sounds/effects/classic-clap.wav" id="3_c6osu"]
+[ext_resource type="Texture2D" uid="uid://dsbaimjqwe8dg" path="res://assets/notes/starparticle.png" id="4_ybr5b"]
 
 [sub_resource type="Animation" id="Animation_pk1v5"]
 length = 0.001
@@ -41,6 +42,10 @@ _data = {
 &"normal": SubResource("Animation_c6osu")
 }
 
+[sub_resource type="Gradient" id="Gradient_61753"]
+offsets = PackedFloat32Array(0.4509804, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
 [node name="hiteffect" type="Node2D" unique_id=800184502]
 script = ExtResource("1_pk1v5")
 
@@ -55,5 +60,24 @@ speed_scale = 8.0
 
 [node name="hit" type="AudioStreamPlayer2D" parent="." unique_id=1208504574]
 stream = ExtResource("3_c6osu")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1909277983]
+emitting = false
+amount = 2
+texture = ExtResource("4_ybr5b")
+lifetime = 0.3
+randomness = 0.38
+direction = Vector2(0, 1)
+spread = 121.69
+gravity = Vector2(0, 800)
+angular_velocity_min = 10.0
+angular_velocity_max = 10.0
+linear_accel_min = 15.0
+linear_accel_max = 15.0
+damping_min = 5.0
+damping_max = 15.0
+scale_amount_min = 0.2
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_61753")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]

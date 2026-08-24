@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://bngmvyfcit10c"]
 
 [ext_resource type="Script" uid="uid://cytnx82q4msat" path="res://menus/start.gd" id="1_7u63d"]
-[ext_resource type="Texture2D" uid="uid://bsdkc0m5r0ihq" path="res://menus/start.png" id="2_v2swd"]
-[ext_resource type="Texture2D" uid="uid://6m3fp5qc56ds" path="res://menus/quit.png" id="3_u5o5l"]
-[ext_resource type="Texture2D" uid="uid://cik53hgvyt7pl" path="res://menus/menu-background.png" id="4_a7sg3"]
+[ext_resource type="Texture2D" uid="uid://c5uh70qa3y8ib" path="res://assets/backgroundmenu.png" id="2_v2swd"]
+[ext_resource type="Texture2D" uid="uid://d8x3nxtujafg" path="res://font/logo.png" id="4_a7sg3"]
+[ext_resource type="Texture2D" uid="uid://blqdgqe4v0mwg" path="res://assets/capa.png" id="4_qggur"]
+[ext_resource type="AudioStream" uid="uid://tsr12i0jrwgl" path="res://sounds/effects/classic-clap.wav" id="5_qggur"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_a7sg3"]
-shadow_size = 0
-shadow_color = Color(0.4509804, 0.09019608, 0.94509804, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v2swd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5p2fm"]
 
 [node name="CenterContainer" type="Control" unique_id=1544224367]
 layout_mode = 3
@@ -22,56 +23,53 @@ layout_mode = 0
 offset_left = -1.0
 offset_right = 481.0
 offset_bottom = 361.0
-texture = ExtResource("4_a7sg3")
+texture = ExtResource("2_v2swd")
 expand_mode = 2
 stretch_mode = 1
 
 [node name="VBoxContainer" type="Control" parent="." unique_id=278766082]
 layout_mode = 1
 anchors_preset = 0
+offset_left = 30.0
+offset_top = -20.0
+offset_right = 30.0
+offset_bottom = -20.0
 
-[node name="start" type="TextureButton" parent="VBoxContainer" unique_id=990964352]
+[node name="start" type="Button" parent="VBoxContainer" unique_id=1216725614]
+modulate = Color(0.39215687, 0.8156863, 0.72156864, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 21.0
-offset_top = 260.0
-offset_right = 113.0
-offset_bottom = 276.0
+offset_left = 25.0
+offset_top = 302.0
+offset_right = 399.0
+offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_stretch_ratio = 3.0
 layout_direction = 1
-texture_normal = ExtResource("2_v2swd")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxEmpty_v2swd")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5p2fm")
+text = "Pressione [SPACE]"
 
-[node name="quit" type="TextureButton" parent="VBoxContainer" unique_id=548707041]
-layout_mode = 0
-offset_left = 26.0
-offset_top = 299.0
-offset_right = 98.0
-offset_bottom = 315.0
-texture_normal = ExtResource("3_u5o5l")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1788214326]
+position = Vector2(241, 145)
+scale = Vector2(0.98888886, 1)
+texture = ExtResource("4_a7sg3")
 
-[node name="title" type="Label" parent="." unique_id=1560170242]
-modulate = Color(0.4509804, 0.9411765, 0.7764706, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 0.5
-offset_top = -51.0
-offset_right = 160.5
-offset_bottom = -35.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Game Title"
-label_settings = SubResource("LabelSettings_a7sg3")
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=648076080]
+modulate = Color(1, 1, 1, 0.20784314)
+self_modulate = Color(1, 1, 1, 0.57254905)
+position = Vector2(243, 195)
+scale = Vector2(3, 3)
+texture = ExtResource("4_qggur")
+
+[node name="confirm" type="AudioStreamPlayer2D" parent="." unique_id=961524932]
+stream = ExtResource("5_qggur")
 
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]

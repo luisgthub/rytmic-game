@@ -1,8 +1,29 @@
 [gd_scene format=3 uid="uid://yckknrwh1sy8"]
 
 [ext_resource type="Script" uid="uid://rhpcme5lxa0u" path="res://menus/game_over.gd" id="1_v8xbx"]
-[ext_resource type="Texture2D" uid="uid://cik53hgvyt7pl" path="res://menus/menu-background.png" id="2_mq8lb"]
-[ext_resource type="Texture2D" uid="uid://d2kev40x6ma1o" path="res://menus/restart.png" id="3_slp2k"]
+[ext_resource type="Texture2D" uid="uid://c5uh70qa3y8ib" path="res://assets/backgroundmenu.png" id="2_slp2k"]
+[ext_resource type="Texture2D" uid="uid://ryl4diqki0ou" path="res://assets/girlface-menu.png" id="3_slp2k"]
+[ext_resource type="AudioStream" uid="uid://tsr12i0jrwgl" path="res://sounds/effects/classic-clap.wav" id="4_hl86a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mgyup"]
+font_size = 14
+shadow_color = Color(0, 0.6392157, 0.34901962, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mq8lb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_slp2k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a6cs8"]
+font_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_kwtkc"]
+font_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_hl86a"]
+font_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_slp2k"]
+font_size = 9
 
 [node name="gameOver" type="CanvasLayer" unique_id=1510223202]
 process_mode = 3
@@ -10,37 +31,84 @@ offset = Vector2(60, 0)
 transform = Transform2D(1, 0, 0, 1, 60, 0)
 script = ExtResource("1_v8xbx")
 
+[node name="estat" type="Label" parent="." unique_id=1249952259]
+offset_top = 100.0
+offset_right = 176.0
+offset_bottom = 116.0
+text = "ESTATISTICA"
+label_settings = SubResource("LabelSettings_mgyup")
+
 [node name="background" type="TextureRect" parent="." unique_id=118826162]
 z_index = -1
 offset_left = -60.0
-offset_right = 424.0
+offset_right = 421.0
 offset_bottom = 363.0
-texture = ExtResource("2_mq8lb")
+texture = ExtResource("2_slp2k")
 
-[node name="restart" type="TextureButton" parent="." unique_id=201611348]
+[node name="restart" type="Button" parent="." unique_id=546143347]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -112.0
-offset_top = 42.0
-offset_right = -8.0
-offset_bottom = 58.0
+offset_left = -236.0
+offset_top = 100.0
+offset_right = 116.0
+offset_bottom = 116.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("3_slp2k")
-texture_pressed = ExtResource("3_slp2k")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mq8lb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_slp2k")
+button_mask = 0
+text = "Ir para o Menu [SPACE]"
+autowrap_trim_flags = 0
 
-[node name="label" type="Label" parent="." unique_id=1976753794]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -124.0
-offset_top = 99.0
-offset_right = 20.0
-offset_bottom = 115.0
-grow_horizontal = 2
-text = "Game Over"
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=806101139]
+offset_top = 140.0
+offset_right = 208.0
+offset_bottom = 228.0
+
+[node name="perf" type="Label" parent="VBoxContainer" unique_id=37629596]
+layout_mode = 2
+text = "Perfeito 10"
+label_settings = SubResource("LabelSettings_a6cs8")
+
+[node name="otimo" type="Label" parent="VBoxContainer" unique_id=376227082]
+layout_mode = 2
+text = "Otimo 20"
+label_settings = SubResource("LabelSettings_kwtkc")
+
+[node name="bom" type="Label" parent="VBoxContainer" unique_id=1976753794]
+layout_mode = 2
+text = "bom 20"
+label_settings = SubResource("LabelSettings_hl86a")
+
+[node name="erro" type="Label" parent="VBoxContainer" unique_id=734455489]
+layout_mode = 2
+text = "bom 20"
+label_settings = SubResource("LabelSettings_hl86a")
+
+[node name="pontuacao" type="VBoxContainer" parent="." unique_id=542665253]
+offset_top = 200.0
+offset_right = 156.0
+offset_bottom = 240.0
+
+[node name="streak" type="Label" parent="pontuacao" unique_id=467830932]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_slp2k")
+
+[node name="score" type="Label" parent="pontuacao" unique_id=245448407]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_slp2k")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=582486605]
+offset_left = 227.0
+offset_top = 101.0
+offset_right = 373.0
+offset_bottom = 238.0
+texture = ExtResource("3_slp2k")
+
+[node name="confirm" type="AudioStreamPlayer2D" parent="." unique_id=2049235694]
+stream = ExtResource("4_hl86a")
 
 [connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]

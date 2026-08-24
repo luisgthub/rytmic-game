@@ -1,0 +1,209 @@
+[gd_scene format=3 uid="uid://0kklgvwe8yxf"]
+
+[ext_resource type="Script" uid="uid://bnbfa8bgxseg7" path="res://menus/music_menu.gd" id="1_hhey0"]
+[ext_resource type="Texture2D" uid="uid://beicafjwoe21d" path="res://assets/girlface.png" id="1_lx7pa"]
+[ext_resource type="Texture2D" uid="uid://c5uh70qa3y8ib" path="res://assets/backgroundmenu.png" id="2_cmsdw"]
+[ext_resource type="Texture2D" uid="uid://ckhwodtd1rklk" path="res://assets/faixas/faixabutton.png" id="3_3vvg2"]
+[ext_resource type="Shader" uid="uid://roxsbc462wx6" path="res://crshader.gdshader" id="5_h5tgk"]
+[ext_resource type="Texture2D" uid="uid://d1os8pis5eedd" path="res://assets/feedback/Sprite-0004.png" id="5_yy6ed"]
+[ext_resource type="PackedScene" uid="uid://dla2twe2qjjjo" path="res://menus/background_live.tscn" id="6_rqg8j"]
+[ext_resource type="PackedScene" uid="uid://c7gk3gjxl587n" path="res://menus/blocofundo.tscn" id="7_jqqax"]
+[ext_resource type="Texture2D" uid="uid://bkxewew1txhpw" path="res://assets/feedback/3stars.png" id="7_k3kaf"]
+[ext_resource type="Texture2D" uid="uid://7lifbjgku2qv" path="res://assets/feedback/4stars.png" id="8_h5j81"]
+[ext_resource type="Texture2D" uid="uid://dgf1xkja8qt3g" path="res://assets/faixas/seta.png" id="9_5p2fm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bhunq"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_hhey0"]
+device = -1
+pressed = true
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_5p2fm"]
+events = [SubResource("InputEventKey_hhey0")]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5p2fm"]
+font_size = 3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rqg8j"]
+shader = ExtResource("5_h5tgk")
+shader_parameter/scanline_count = 624.590024918025
+shader_parameter/scanline_intensity = 0.2210000104975
+shader_parameter/glitch_amount = 0.002000000095
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hhey0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5p2fm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h5j81"]
+font_size = 12
+
+[node name="music_menu" type="Node2D" unique_id=791223743]
+script = ExtResource("1_hhey0")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=289341016]
+modulate = Color(1, 1, 1, 0.21176471)
+z_index = 2
+offset_left = 61.0
+offset_top = 2.0
+offset_right = 426.0
+offset_bottom = 357.0
+texture = ExtResource("1_lx7pa")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1704024015]
+z_index = 1
+offset_right = 480.0
+offset_bottom = 360.0
+texture = ExtResource("2_cmsdw")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="." unique_id=992541779]
+z_index = 1
+offset_left = 13.0
+offset_top = 27.0
+offset_right = 109.0
+offset_bottom = 43.0
+text = "Faixas Disponiveis "
+label_settings = SubResource("LabelSettings_bhunq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1803661651]
+z_index = 2
+offset_left = 24.0
+offset_top = 160.0
+offset_right = 152.0
+offset_bottom = 192.0
+scale = Vector2(2, 2)
+theme_override_constants/separation = 16
+
+[node name="song1" type="TextureButton" parent="HBoxContainer" unique_id=1115637872]
+z_index = 1
+layout_mode = 2
+shortcut = SubResource("Shortcut_5p2fm")
+texture_normal = ExtResource("3_3vvg2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/song1" unique_id=123008119]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 35.0
+offset_right = 44.0
+offset_bottom = 60.5
+
+[node name="title" type="Label" parent="HBoxContainer/song1/VBoxContainer" unique_id=1605690670]
+layout_mode = 2
+text = "Tutorial"
+label_settings = SubResource("LabelSettings_5p2fm")
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/song1/VBoxContainer" unique_id=1271734258]
+position = Vector2(8, 7)
+texture = ExtResource("5_yy6ed")
+
+[node name="song2" type="TextureButton" parent="HBoxContainer" unique_id=1811400789]
+z_index = 1
+layout_mode = 2
+shortcut = SubResource("Shortcut_5p2fm")
+texture_normal = ExtResource("3_3vvg2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/song2" unique_id=878544606]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 35.0
+offset_right = 44.0
+offset_bottom = 60.5
+
+[node name="title" type="Label" parent="HBoxContainer/song2/VBoxContainer" unique_id=1710281584]
+layout_mode = 2
+text = "Ginga de
+Madeira"
+label_settings = SubResource("LabelSettings_5p2fm")
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/song2/VBoxContainer" unique_id=165386044]
+position = Vector2(8, 13)
+texture = ExtResource("7_k3kaf")
+
+[node name="song3" type="TextureButton" parent="HBoxContainer" unique_id=481199160]
+z_index = 1
+layout_mode = 2
+shortcut = SubResource("Shortcut_5p2fm")
+texture_normal = ExtResource("3_3vvg2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/song3" unique_id=1746272793]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 35.0
+offset_right = 44.0
+offset_bottom = 60.5
+
+[node name="title" type="Label" parent="HBoxContainer/song3/VBoxContainer" unique_id=810889783]
+layout_mode = 2
+text = "Roda de
+angola"
+label_settings = SubResource("LabelSettings_5p2fm")
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/song3/VBoxContainer" unique_id=2061948321]
+position = Vector2(10, 13)
+texture = ExtResource("8_h5j81")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1984099044]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=460477895]
+material = SubResource("ShaderMaterial_rqg8j")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background_live" parent="." unique_id=740587569 instance=ExtResource("6_rqg8j")]
+modulate = Color(1, 1, 1, 0.2901961)
+z_index = 1
+bloco_scene = ExtResource("7_jqqax")
+
+[node name="restart" type="Button" parent="." unique_id=1366889653]
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 205.0
+offset_top = 324.0
+offset_right = 461.0
+offset_bottom = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hhey0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5p2fm")
+button_mask = 0
+text = "Tela Inicial [S]"
+autowrap_trim_flags = 0
+
+[node name="seta" type="Sprite2D" parent="." unique_id=1664059980]
+z_index = 1
+position = Vector2(34, 188)
+scale = Vector2(2, 2)
+texture = ExtResource("9_5p2fm")
+centered = false
+
+[node name="lista" type="Label" parent="." unique_id=867660469]
+z_index = 1
+offset_left = 24.0
+offset_top = 115.0
+offset_right = 288.0
+offset_bottom = 131.0
+text = "Escolha a canção [A/D]"
+label_settings = SubResource("LabelSettings_h5j81")
+
+[node name="selecionar" type="Label" parent="." unique_id=258354834]
+z_index = 1
+offset_left = 239.0
+offset_top = 301.0
+offset_right = 455.0
+offset_bottom = 317.0
+text = "Selecionar [SPACE]"
+label_settings = SubResource("LabelSettings_h5j81")
+
+[connection signal="pressed" from="HBoxContainer/song1" to="." method="_on_botao_1_pressed"]
+[connection signal="pressed" from="HBoxContainer/song2" to="." method="_on_botao_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/song3" to="." method="_on_botao_3_pressed"]

@@ -15,16 +15,20 @@ var button_box_start = Vector2(0, 150)
 @export var block_up: PackedScene
 @export var block_right: PackedScene
 var count_perfects:int= 0
+var count_good:int= 0
+var count_great:int= 0
 var speed = 100 # Aumentado para fluir mais rápido
-var block_left_start = Vector2(180, 50)
-var block_up_start = Vector2(240, 50)
-var block_right_start = Vector2(300, 50)
+var block_left_start = Vector2(70, 20)
+var block_up_start = Vector2(130, 20)
+var block_right_start = Vector2(190, 20)
 
 # Lista para guardar todas as notas ativas na tela ao mesmo tempo
 var active_notes: Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$streak.text = "Combo 0"
+	
 	button_left.send_key_pressed.connect(_on_send_key_pressed)
 	button_up.send_key_pressed.connect(_on_send_key_pressed)
 	button_right.send_key_pressed.connect(_on_send_key_pressed)
@@ -32,6 +36,7 @@ func _ready() -> void:
 	
 	# AUDIO
 	timer_spawn.timeout.connect(_on_timer_spawn_timeout)
+	audio_player.finished.connect(_on_music_finished)
 	audio_player.play()
 
 func _physics_process(delta: float) -> void:
@@ -55,8 +60,11 @@ func _physics_process(delta: float) -> void:
 		elif note.is_in_group("right_notes"): ref_button = button_right
 		
 		# Se passou do botão, dá MISS e remove
-		if note.global_position.x < ref_button.global_position.x - 10:
+		if note.global_position.y > ref_button.global_position.y + 80:
 			print("MISS! Passou reto.")
+			$erro.play()
+			Manager.erro+=1
+			capo.play_rating_anim("erro")
 			active_notes.remove_at(i)
 			note.queue_free()
 
@@ -88,7 +96,7 @@ func tap_note(button: TextureButton, track_group: String):
 	var min_dist = 999999
 	for note in active_notes:
 		if note.is_in_group(track_group) and is_instance_valid(note):
-			var dist = abs(button.global_position.x - note.global_position.x)
+			var dist = abs(button.global_position.y - note.global_position.y)
 			if dist < min_dist:
 				min_dist = dist
 				closest_note = note
@@ -100,26 +108,42 @@ func tap_note(button: TextureButton, track_group: String):
 	print("distancia da nota pro botao: ", min_dist)
 	
 	var rating = ""
-	if min_dist <= 20:
+	if min_dist <= 8:
 		rating = "perfeito"
+		Manager.perfeito+=1
 		count_perfects+=1
 		if count_perfects>=5:
+			Manager.add_streak(1)
+			$streak.text = "Combo "+str(Manager.streak)
 			$perfect.play()
 			$perfect.pitch_scale = randf_range(0.8,1.0)
 			count_perfects = 0
 		capo.play_rating_anim(rating)
 		Manager.add_score(50)
-	elif min_dist <= 30:
-		count_perfects = 0
+	elif min_dist <= 12:
+		count_great+=1
+		Manager.otimo+=1
+		if count_great>=5:
+			Manager.add_streak(1)
+			$streak.text = "Combo "+str(Manager.streak)
+			count_great = 0
 		rating = "otimo"
 		capo.play_rating_anim(rating)
 		Manager.add_score(40)
-	elif min_dist <= 40:
-		count_perfects = 0
+	elif min_dist <= 20:
+		count_good+=1
+		Manager.bom+=1
+		if count_good>=5:
+			Manager.add_streak(1)
+			$streak.text = "Combo "+str(Manager.streak)
+			count_good = 0
 		rating = "bom"
 		capo.play_rating_anim(rating)
 		Manager.add_score(20)
 	else:
+		$erro.play()
+		rating = "erro"
+		capo.play_rating_anim(rating)
 		print("erro de timing")
 		return
 
@@ -138,3 +162,7 @@ func _on_send_key_pressed(key: String) -> void:
 			tap_note(button_up, "up_notes")
 		"right":
 			tap_note(button_right, "right_notes")
+
+
+func _on_music_finished() -> void:
+	Transition.change_scene("res://menus/game_over.tscn")

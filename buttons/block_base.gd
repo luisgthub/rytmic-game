@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 	pass
 func create_notify(rating):
 	var inst = notify.instantiate()
-	inst.choose_texture = rating
+	inst.choose_rating = rating
 	inst.global_position = Vector2(240,180)
 	get_tree().current_scene.add_child(inst)
 	

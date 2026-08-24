@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c7gk3gjxl587n"]
+
+[ext_resource type="Texture2D" uid="uid://dp0b776n2lmlp" path="res://assets/feedback/pandeiro.png" id="1_cqa0g"]
+
+[node name="Sprite2D" type="Sprite2D" unique_id=1922538549]
+texture = ExtResource("1_cqa0g")

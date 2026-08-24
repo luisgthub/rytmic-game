@@ -10,6 +10,7 @@ offsets = PackedFloat32Array(0, 0.60784316)
 
 [node name="capoeirista" type="Node2D" unique_id=1140985955]
 z_index = 1
+scale = Vector2(2.5, 2.5)
 script = ExtResource("1_t2wx4")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=305152635]
@@ -40,5 +41,4 @@ color_ramp = SubResource("Gradient_b5sql")
 [node name="shadow" type="Sprite2D" parent="." unique_id=1391992625]
 modulate = Color(1, 1, 1, 0.5764706)
 position = Vector2(0, 20)
-scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_bcd66")

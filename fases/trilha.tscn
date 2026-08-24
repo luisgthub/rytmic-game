@@ -7,15 +7,24 @@
 [ext_resource type="PackedScene" uid="uid://cv0yxqgvvw1oy" path="res://buttons/right.tscn" id="3_e4p3i"]
 [ext_resource type="PackedScene" uid="uid://rduocilqwlm4" path="res://buttons/block_up.tscn" id="3_j0oax"]
 [ext_resource type="PackedScene" uid="uid://dol7txmruksov" path="res://buttons/block_right.tscn" id="4_3ge36"]
+[ext_resource type="Texture2D" uid="uid://dr5twvrt6h0wj" path="res://assets/feedback/starscore.png" id="9_neogf"]
 [ext_resource type="FontFile" uid="uid://deukeqb7apcnu" path="res://font/PressStart2P-Regular.ttf" id="10_3ge36"]
 [ext_resource type="AudioStream" uid="uid://0fcv88ugbg7d" path="res://sounds/music/Berimbau de Angola.mp3" id="11_ly18u"]
-[ext_resource type="Texture2D" uid="uid://dlhvxm2koeitu" path="res://assets/background.png" id="11_un4ac"]
 [ext_resource type="PackedScene" uid="uid://dbmwa3uxbka7o" path="res://capoeirista.tscn" id="12_ly18u"]
 [ext_resource type="Texture2D" uid="uid://bkhxl55be0t2x" path="res://assets/roda.png" id="13_alor4"]
 [ext_resource type="AudioStream" uid="uid://bu388y1c747sn" path="res://sounds/effects/powerUp.wav" id="13_neogf"]
+[ext_resource type="Texture2D" uid="uid://t8bweb88fn62" path="res://assets/particle.png" id="14_oassl"]
+[ext_resource type="Texture2D" uid="uid://dlhvxm2koeitu" path="res://assets/background.png" id="14_qcjk6"]
+[ext_resource type="PackedScene" uid="uid://dla2twe2qjjjo" path="res://menus/background_live.tscn" id="15_qcjk6"]
+[ext_resource type="Texture2D" uid="uid://beicafjwoe21d" path="res://assets/girlface.png" id="15_s1at1"]
+[ext_resource type="PackedScene" uid="uid://dd0w085e3r8eb" path="res://menus/berimbaufundo.tscn" id="18_47tcn"]
+[ext_resource type="AudioStream" uid="uid://dvmfrumr1vknk" path="res://sounds/effects/error.wav" id="19_dxl6u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j0oax"]
 font = ExtResource("10_3ge36")
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_slp2k"]
 font_size = 12
 
 [node name="trilha" type="Node2D" unique_id=2122175669]
@@ -25,15 +34,14 @@ block_up = ExtResource("3_j0oax")
 block_right = ExtResource("4_3ge36")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=9214190]
-offset_left = 180.0
-offset_top = 120.0
-offset_right = 314.0
-offset_bottom = 240.0
+offset_right = 264.0
+offset_bottom = 361.0
 
 [node name="VBoxContainer" type="HBoxContainer" parent="CenterContainer" unique_id=673702851]
 z_index = 1
 layout_mode = 2
 offset_transform_enabled = true
+theme_override_constants/separation = 24
 alignment = 1
 
 [node name="left" parent="CenterContainer/VBoxContainer" unique_id=205513139 instance=ExtResource("1_wcpin")]
@@ -45,19 +53,17 @@ layout_mode = 2
 [node name="right" parent="CenterContainer/VBoxContainer" unique_id=883034645 instance=ExtResource("3_e4p3i")]
 layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=97168947]
-position = Vector2(-1.5, 0)
-scale = Vector2(1.025, 1.3791667)
-texture = ExtResource("11_un4ac")
-centered = false
-offset = Vector2(60, 0)
-
 [node name="score_label" type="Label" parent="." unique_id=23871258]
-offset_left = 317.0
-offset_top = 300.0
-offset_right = 401.0
-offset_bottom = 312.0
+offset_left = 320.0
+offset_top = 321.0
+offset_right = 380.0
+offset_bottom = 333.0
 label_settings = SubResource("LabelSettings_j0oax")
+
+[node name="Sprite2D" type="Sprite2D" parent="score_label" unique_id=1780288279]
+position = Vector2(110, 5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_neogf")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1956583021]
 stream = ExtResource("11_ly18u")
@@ -67,19 +73,52 @@ wait_time = 0.5
 autostart = true
 
 [node name="capoeirista" parent="." unique_id=1140985955 instance=ExtResource("12_ly18u")]
-position = Vector2(243, 200)
-scale = Vector2(2, 2)
+position = Vector2(373, 180)
 
 [node name="perfect" type="AudioStreamPlayer2D" parent="." unique_id=2078576026]
 stream = ExtResource("13_neogf")
 volume_db = -20.0
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=831491923]
-offset_left = 180.0
-offset_top = 180.0
-offset_right = 308.0
-offset_bottom = 308.0
+visible = false
+offset_left = 310.0
+offset_top = 160.0
+offset_right = 438.0
+offset_bottom = 288.0
 texture = ExtResource("13_alor4")
 
+[node name="streak" type="Label" parent="." unique_id=730101349]
+offset_left = 320.0
+offset_top = 33.0
+offset_right = 360.0
+offset_bottom = 49.0
+label_settings = SubResource("LabelSettings_slp2k")
+
+[node name="Sprite2D" type="Sprite2D" parent="streak" unique_id=1758809307]
+position = Vector2(95, 5)
+scale = Vector2(3, 3)
+texture = ExtResource("14_oassl")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1114795889]
+z_index = -1
+offset_right = 480.0
+offset_bottom = 359.0
+texture = ExtResource("14_qcjk6")
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureRect2" unique_id=106047766]
+modulate = Color(1, 1, 1, 0.3019608)
+self_modulate = Color(1, 1, 1, 0.6862745)
+position = Vector2(130, 150)
+scale = Vector2(2.4296875, 2.171875)
+texture = ExtResource("15_s1at1")
+
+[node name="background_live" parent="." unique_id=740587569 instance=ExtResource("15_qcjk6")]
+modulate = Color(1, 1, 1, 0.41960785)
+bloco_scene = ExtResource("18_47tcn")
+
+[node name="erro" type="AudioStreamPlayer2D" parent="." unique_id=1819853669]
+stream = ExtResource("19_dxl6u")
+
 [connection signal="send_key_pressed" from="CenterContainer/VBoxContainer/left" to="." method="_on_send_key_pressed"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_music_finished"]
 [connection signal="timeout" from="TimerSpawn" to="." method="_on_timer_spawn_timeout"]

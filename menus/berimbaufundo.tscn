@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dd0w085e3r8eb"]
+
+[ext_resource type="Texture2D" uid="uid://d250gptrl3jqa" path="res://assets/feedback/berimbau.png" id="1_46ww1"]
+
+[node name="Sprite2D" type="Sprite2D" unique_id=1922538549]
+texture = ExtResource("1_46ww1")

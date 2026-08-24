@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dla2twe2qjjjo"]
+
+[ext_resource type="Script" uid="uid://bsomnxvd8csns" path="res://menus/background_live.gd" id="1_u86af"]
+
+[node name="background_live" type="Node2D" unique_id=740587569]
+self_modulate = Color(1, 1, 1, 0.34901962)
+position = Vector2(0, 30)
+script = ExtResource("1_u86af")

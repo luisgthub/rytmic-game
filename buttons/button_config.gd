@@ -5,6 +5,7 @@ class_name ButtonConfig
 @export var anim:PackedScene 
 @export var normal_text:Texture2D
 @onready var part = $CPUParticles2D
+var offset = Vector2(16,0)
 signal send_key_pressed(key:String)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
